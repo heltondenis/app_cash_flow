@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet} from 'react-native';
 
-export default class Home extends Component {
+export default class Interna extends Component {
 
 	static navigationOptions = {
-		title:"Home"
+		title:"Interna"
 	}
 
 	render(){
