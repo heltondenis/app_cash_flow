@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import StackNavigator from 'react-navigator';
+import { StackNavigator } from 'react-navigation';
+import Home from './src/Home';
+import Cadastro from './src/Cadastro';
+import Login from './src/Login';
+import Interna from './src/Interna';
+
 
 const Navegador = StackNavigator({
   Home:{
@@ -15,3 +20,5 @@ const Navegador = StackNavigator({
     screen:Interna
   }
 });
+
+export default Navegador;
