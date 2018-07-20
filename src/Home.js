@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableHighlight} from 'react-native';
+import { View, Text, StyleSheet, TouchableHighlight, ImageBackground} from 'react-native';
 
 export default class Home extends Component {
 
@@ -9,7 +9,6 @@ export default class Home extends Component {
 	}
 
 	/* Métodos */
-
 	constructor(props) {
 	  super(props);
 	
@@ -27,18 +26,20 @@ export default class Home extends Component {
 	}
 	render(){
 		return (
-			<View style={styles.container}>
-				<Text style={styles.title}>Fluxo de Caixa v1.0</Text>
-				<View style={styles.buttonArea}>
-					<TouchableHighlight underlayColor="#CCCCCC" style={styles.button} onPress={this.cadastrar}>
-					<Text style={styles.btnText} >Cadastrar</Text>
-					</TouchableHighlight>
+			<ImageBackground source={require('../assets/img/Lunada.jpg')} style={styles.bg}>
+				<View style={styles.container}>
+					<Text style={styles.title}>Fluxo de Caixa v1.0</Text>
+					<View style={styles.buttonArea}>
+						<TouchableHighlight underlayColor="#CCCCCC" style={styles.button} onPress={this.cadastrar}>
+						<Text style={styles.btnText} >Cadastrar</Text>
+						</TouchableHighlight>
 
-					<TouchableHighlight underlayColor="#CCCCCC" style={styles.button} onPress={this.login}>
-					<Text style={styles.btnText} >Login</Text>
-					</TouchableHighlight>
+						<TouchableHighlight underlayColor="#CCCCCC" style={styles.button} onPress={this.login}>
+						<Text style={styles.btnText} >Login</Text>
+						</TouchableHighlight>
+					</View>
 				</View>
-			</View>
+			</ImageBackground>
 		);
 	}
 }
@@ -52,13 +53,13 @@ const styles = StyleSheet.create({
 	container:{
 		flex:1,
 		justifyContent: 'center',
-		alignItems: 'center'  
+		alignItems: 'center'
 	},
 	buttonArea:{
 		marginTop: 30,
 	},
 	button:{
-		backgroundColor: '#bfb300',
+		backgroundColor: '#6dd5ed',
 		margin: 10,
 		height: 40,
 		width: 200,
@@ -67,6 +68,10 @@ const styles = StyleSheet.create({
 	btnText:{
 		color: '#FFFFFF',
 		textAlign: 'center'
+	},
+	bg:{
+		flex:1,
+		width:null
 	}
 
 });
