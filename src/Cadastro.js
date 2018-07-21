@@ -26,19 +26,16 @@ export default class Cadastro extends Component {
 
 	/* Métodos */
 	cadastrar(){
-
 		if (this.state.emailInput != '' && this.state.senhaInput != '') {
 
 			firebase.auth().onAuthStateChanged((user)=>{
-				if (user) {
-
+				if(user){
 					let uid = user.uid;
-
 					firebase.database().ref('users').child(uid).set({
 						saldo:0
 					});
 
-					this.props.navigation.navigation('Interna');
+					this.props.navigation.navigate('Interna');
 				}
 			});
 
@@ -48,7 +45,6 @@ export default class Cadastro extends Component {
 			).catch((error)=>{
 				alert(error.code);
 			});
-
 		}
 	}
 
