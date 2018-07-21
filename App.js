@@ -5,6 +5,8 @@ import Cadastro from './src/Cadastro';
 import Login from './src/Login';
 import Interna from './src/Interna';
 import Preload from './src/Preload';
+import AddReceita from './src/AddReceita';
+import AddDespesa from './src/AddDespesa';
 
 
 const Navegador = StackNavigator({
@@ -22,6 +24,12 @@ const Navegador = StackNavigator({
   },
   Login:{
     screen:Login
+  },
+  AddReceita:{
+    screen:AddReceita
+  },
+  AddDespesa:{
+    screen:AddDespesa
   }
 });
 

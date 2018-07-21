@@ -6,7 +6,7 @@ import firebase from './FirebaseConnection.js';
 export default class Interna extends Component {
 
 	static navigationOptions = {
-		title:"Interna",
+		title:"Home",
 		headerStyle:{
 			backgroundColor: '#6dd5ed'
 		},
@@ -44,10 +44,10 @@ export default class Interna extends Component {
 
 	/* Métodos */
 	addReceita(){
-		alert('Receita');
+		this.props.navigation.navigate('AddReceita');
 	}
 	addDespesa(){
-		alert('Despesa');
+		this.props.navigation.navigate('AddDespesa');
 	}
 	sair(){
 		firebase.auth().signOut();
