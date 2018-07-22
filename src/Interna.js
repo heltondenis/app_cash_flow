@@ -36,6 +36,22 @@ export default class Interna extends Component {
 	  			this.setState(state);
 	  		});
 
+	  		firebase.database().ref('historico').child(user.uid).on('value', (snapshot)=>{
+
+	  			let state = this.state;
+	  			state.historico = [];
+
+	  			snapshot.forEach((childItem)=>{
+	  				state.historico.push({
+	  					key:childItem.key,
+	  					type:childItem.val().type,
+	  					valor:childItem.val().valor
+	  				});
+	  			});
+
+	  			this.setState(state);
+	  		});
+
 	  	} else {
 	  		this.props.navigation.navigate('Home');
 	  	}
