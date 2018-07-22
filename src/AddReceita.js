@@ -25,19 +25,34 @@ export default class AddReceita extends Component {
 	add(){
 		if (this.state.valor != '') {
 
-			let uid = firebase.auth().currentUser.uid;
-			let key = firebase.database().ref('historico').child(uid).push().key;
 
-			/* Update */
-			firebase.database().ref('historico').child(uid).child(key).set({
+			let historico = firebase.database().ref('historico')
+					.child(firebase.auth().currentUser.uid);
+			let user = firebase.database().ref('users')
+				.child(firebase.auth().currentUser.uid);
+
+			/* Update no banco Histórico */
+			let key = historico.push().key;
+
+			historico.child(key).set({
 				type:'receita',
 				valor:this.state.valor
 			});
 
-			alert("Adicionou no histórico");
+			/* Update no banco Saldo */
+				user.once('value').then((snapshot)=>{
+
+					let saldo = parseFloat(snapshot.val().saldo);
+					saldo += parseFloat(this.state.valor);
+
+					user.set({
+						saldo:saldo
+					});
+
+					alert("Saldo atualizado");
+				});
 		}
 	}
-
 
 	render(){
 		return (
